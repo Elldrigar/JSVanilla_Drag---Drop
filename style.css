@@ -10,6 +10,7 @@
 }
 
 body {
+    font-family: 'Raleway', sans-serif ;
     background-color: var(--color-bgc);
     color: var(--color-txt);
 }
