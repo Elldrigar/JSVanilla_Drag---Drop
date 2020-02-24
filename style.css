@@ -1,6 +1,11 @@
 :root {
-    --color-bgc: #000000;
-    --color-txt: #ffffff;
+    --color-bgc: #1B262C;
+    --color-txt: #BBE1FA;
+    --color-border: #3282B8;
+    --color-inside: #0F4C75;
+    --color-number: #0f283c;
+    --color-txt-right: #3AE374;
+    --color-txt-wrong: #FF3838;
 }
 
 * {
@@ -10,7 +15,96 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
     font-family: 'Raleway', sans-serif ;
     background-color: var(--color-bgc);
     color: var(--color-txt);
+}
+h1 {
+    font-size: 18px;
+    font-weight: 100;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+p {
+    font-size: 16px;
+    font-weight: 100;
+    margin: 20px;
+}
+
+.draggable-list {
+    border: 1px solid var(--color-border);
+    list-style-type: none;
+}
+.draggable-list li {
+    display: flex;
+    flex: 1;
+    background-color: var(--color-inside);
+}
+
+.draggable-list li:not(:last-of-type) {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.draggable-list .number {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    height: 60px;
+    width: 60px;
+    background-color: var(--color-number);
+}
+
+.draggable-list li.over .draggable {
+    background-color: var(--color-number);
+}
+
+.draggable-list .serial-name {
+    margin: 0 20px 0 0;
+    font-weight: 300;
+    font-size: 20px;
+}
+.draggable-list li.right .serial-name {
+    color: var(--color-txt-right);
+}
+.draggable-list li.wrong .serial-name {
+    color: var(--color-txt-wrong);
+}
+
+
+
+.draggable {
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.check-btn {
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--color-number);
+    color: var(--color-txt);
+    margin-top: 16px;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+.check-btn:active {
+    transform: scale(0.90);
+}
+
+.check-btn:focus {
+    outline: none;
 }
