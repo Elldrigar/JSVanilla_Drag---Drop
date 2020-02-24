@@ -23,7 +23,10 @@ createList();
 //INSERT LIST ITEMS TO DOM
 function createList() {
     [...serialsNetflix]
+        .map(a => ({value: a, sort: Math.random() }))
+        .sort((a,b) => a.sort -b.sort)
         .forEach((serial, index) => {
+          console.log(serial);
           const listItem = document.createElement('li');
 
           listItem.setAttribute('data-index', index);
