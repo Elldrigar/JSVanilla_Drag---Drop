@@ -70,19 +70,33 @@ function swapItems(fromIndex, toIndex) {
     listItems[toIndex].appendChild(itemOne);
 }
 
+function checkOrder() {
+    listItems.forEach((listItem, index) => {
+        const serialName = listItem.querySelector('.draggable')
+            .innerText.trim();
+
+        if (serialName !== serialsNetflix[index]) {
+            listItem.classList.add('wrong');
+        } else {
+            listItem.classList.remove('wrong');
+            listItem.classList.add('right');
+        }
+    });
+}
+
 function addEventListeners() {
     const draggables = document.querySelectorAll('.draggable');
     const dragListItems = document.querySelectorAll('.draggable-list li');
 
     draggables.forEach(draggable => {
         draggable.addEventListener('dragstart', dragStart)
-    })
+    });
     dragListItems.forEach(item => {
         item.addEventListener('dragover',dragOver);
         item.addEventListener('drop', dragDrop);
         item.addEventListener('dragenter', dragEnter);
         item.addEventListener('dragleave', dragLeave)
-    })
-
-
+    });
 }
+
+check.addEventListener('click', checkOrder);
